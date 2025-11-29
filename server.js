@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Default route
 app.get('/', (req, res) => {
-  res.send('Hello Kuya rhamuel i miss you');
+  res.send('Hello World');
 });
 
 // Import buying system routes
