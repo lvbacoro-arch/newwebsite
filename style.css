@@ -1,0 +1,182 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;   /* push form to the right */
+    align-items: center;         /* keep it vertically centered */
+
+    /* Background image */
+    background: url('d82812869c715e1ea67d695f298a4005.jpg') center/cover no-repeat;
+}
+
+/* Card Container */
+.container {
+    background: #ffffff;
+    width: 380px;
+    padding: 40px 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    animation: fadeIn 0.4s ease;
+    margin-right: 40px; /* spacing from the right edge */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 17px;
+    color: #777;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #4c6ef5;
+}
+
+.input-group label {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+/* Floating label effect */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -7px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 12px;
+    color: #4c6ef5;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #4c6ef5;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #3657e0;
+}
+
+/* OR Divider */
+.or {
+    text-align: center;
+    margin: 20px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Social Icons */
+.icons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icons i {
+    font-size: 22px;
+    margin: 0 10px;
+    color: #4c6ef5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.icons i:hover {
+    transform: scale(1.2);
+}
+
+/* Links section */
+.links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.links p {
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.links button {
+    background: transparent;
+    border: 2px solid #4c6ef5;
+    padding: 8px 20px;
+    border-radius: 10px;
+    color: #4c6ef5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.links button:hover {
+    background: #4c6ef5;
+    color: white;
+}
+
+/* Recover Password */
+.recover a {
+    font-size: 13px;
+    color: #4c6ef5;
+    text-decoration: none;
+}
+
+.recover a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+    .container {
+        width: 100%;
+        padding: 30px 20px;
+        margin-right: 0; /* remove spacing on small screens */
+    }
+}
