@@ -5,71 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Byte Hardware - PC Components & Accessories</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome (free CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap9Y1X8tq1YF1xg7Zq2QK6QX/8xkz1KQp8aZ9E+Zx0v5J6z3h3zq6e2y8Yq1v2mR1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Your external stylesheet (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="Style.css">
-
-    <!-- Minimal page styles to make the demo usable if Style.css is missing -->
-    <style>
-        :root{
-            --color-primary-blue: #0b5fff;
-            --container-width: 1100px;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-        }
-        *{box-sizing:border-box}
-        body{margin:0;color:#222}
-        .container{max-width:var(--container-width);margin:0 auto;padding:0 16px}
-        .top-utility-bar{background:#f8f9fb;padding:8px 0;font-size:0.95rem}
-        .top-bar-content{display:flex;align-items:center;gap:12px;justify-content:center}
-        .promotion-text{font-weight:600}
-        .main-header{padding:18px 0}
-        .main-header-grid{display:flex;align-items:center;gap:20px}
-        .logo img{height:48px}
-        .search-bar-container{flex:1;display:flex;gap:8px}
-        .search-input{flex:1;padding:12px;border:1px solid #ddd;border-radius:6px}
-        .search-button{padding:12px 14px;border:none;background:var(--color-primary-blue);color:#fff;border-radius:6px}
-        .user-actions{display:flex;gap:12px;align-items:center}
-        .nav-content{display:flex;align-items:center;gap:20px;padding:12px 0}
-        .category-menu-btn{display:flex;gap:8px;align-items:center;font-weight:600}
-        .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:16px}
-        .nav-item{color:inherit;text-decoration:none}
-        .hero-section{margin:18px 0}
-        .hero-banner-solid-blue{background:linear-gradient(90deg,#0b5fff,#0047b3);color:#fff;padding:36px;border-radius:10px}
-        .hero-text-overlay h2{margin:8px 0 12px}
-        .product-icons{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
-        .product-icons a{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit;width:100px}
-        .product-icons img{width:64px;height:64px;object-fit:contain}
-        .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:12px}
-        .product-card{background:#fff;border:1px solid #ececec;padding:12px;border-radius:8px;position:relative}
-        .product-image{width:100%;height:140px;object-fit:contain;background:#f7f7f7;border-radius:6px}
-        .btn-add{margin-top:8px;display:block;width:100%;padding:10px;border:none;background:var(--color-primary-blue);color:#fff;border-radius:6px}
-        .hover-bar{position:absolute;top:10px;right:10px;display:flex;gap:6px}
-        .action-icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:rgba(255,255,255,0.9);border-radius:6px;color:#333;text-decoration:none}
-        .cart-icon-label{position:fixed;right:18px;top:18px;cursor:pointer;display:flex;align-items:center;gap:8px}
-        .cart-badge{background:#ff3b3b;color:#fff;padding:2px 7px;border-radius:999px;font-size:0.75rem}
-        .cart-panel{position:fixed;right:18px;top:70px;width:320px;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.08);z-index:60;padding:12px;display:none}
-        .cart-panel.open{display:block}
-        .cart-header{display:flex;justify-content:space-between;align-items:center}
-        .cart-empty{display:flex;flex-direction:column;align-items:center;padding:24px}
-        /* simple responsive */
-        @media (max-width:700px){.main-header-grid{flex-direction:column;align-items:flex-start}.container{padding:0 12px}}
-    </style>
 </head>
 <body>
-    <!-- Cart toggle (kept hidden but we toggle with JS in this file) -->
+    <input type="checkbox" id="cart-toggle" hidden>
 
-    <label class="cart-icon-label" id="cart-toggle-btn" title="Shopping Cart">
-        <i class="fas fa-shopping-bag icon" style="font-size: 1.3rem; color: var(--color-primary-blue);"></i>
-        <span class="cart-badge" id="cart-badge">0</span>
+    <label for="cart-toggle" class="cart-icon-label">
+        <i class="fas fa-shopping-bag icon" style="font-size: 1.5rem; color: var(--color-primary-blue);"></i>
+        <span class="cart-badge">0</span>
     </label>
 
     <header class="top-utility-bar">
         <div class="container">
             <div class="top-bar-content">
-                <button class="promo-prev" aria-label="Previous promo"><i class="fas fa-chevron-left"></i></button>
+                <span class="promo-prev"><i class="fas fa-chevron-left"></i></span>
                 <span class="promotion-text">🔥 Limited Time Offer: Save up to 50% on all electronics!</span>
-                <button class="promo-next" aria-label="Next promo"><i class="fas fa-chevron-right"></i></button>
+                <span class="promo-next"><i class="fas fa-chevron-right"></i></span>
             </div>
         </div>
     </header>
@@ -78,8 +30,7 @@
         <div class="container">
             <div class="main-header-grid">
                 <a href="#" class="logo">
-                    <!-- fixed forward slashes for paths -->
-                    <img src="../bytehardware/Logo/byte.png" alt="Company Logo" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\byte.png" alt="Company Logo">
                 </a>
 
                 <div class="search-bar-container">
@@ -90,10 +41,15 @@
                 </div>
 
                 <div class="user-actions">
-                    <!-- opens a simple modal below -->
-                    <button class="action-link" id="open-account" title="Account" aria-haspopup="true"><i class="fas fa-user icon"></i></button>
-                    <a href="#" class="action-link" title="Wishlist"><i class="fas fa-heart icon"></i></a>
-                    <button class="action-link" id="cart-toggle" title="Shopping Cart"><i class="fas fa-shopping-cart icon"></i></button>
+                    <a href="#" class="action-link" title="Account">
+                        <i class="fas fa-user icon"></i>
+                    </a>
+                    <a href="#" class="action-link" title="Wishlist">
+                        <i class="fas fa-heart icon"></i>
+                    </a>
+                    <label for="cart-toggle" class="action-link" title="Shopping Cart">
+                        <i class="fas fa-shopping-cart icon"></i>
+                    </label>
                 </div>
             </div>
         </div>
@@ -102,17 +58,18 @@
     <nav class="main-nav-bar">
         <div class="container nav-content">
             <div class="category-menu-btn">
-                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
                 All Categories
             </div>
+            
             <ul class="nav-links">
                 <li class="dropdown">
                     <a href="#" class="nav-item">Components <i class="fas fa-chevron-down" style="font-size: 0.7em;"></i></a>
-                    <ul class="dropdown-menu" style="display:none;position:absolute;background:#fff;padding:8px;border:1px solid #eee;">
+                    <ul class="dropdown-menu">
                         <li><a href="#">Processors (CPU)</a></li>
                         <li><a href="#">Graphics Cards (GPU)</a></li>
                         <li><a href="#">Memory (RAM)</a></li>
@@ -130,93 +87,128 @@
         <section class="hero-section">
             <div class="hero-banner-solid-blue">
                 <div class="hero-text-overlay">
-                    <p class="company-name" style="font-weight:700;letter-spacing:1px">BYTE HARDWARE <span class="accent-text">PRESENTS</span></p>
+                    <p class="company-name">BYTE HARDWARE <span class="accent-text">PRESENTS</span></p>
                     <h2>New Arrivals: Performance PC Parts. <br>Up to 40% Off!</h2>
                     <p class="sub-text">Build your ultimate gaming rig or workstation with the newest, most powerful components.</p>
                     
-                    <div class="promo-buttons-group" style="display:flex;gap:12px;align-items:center;margin-top:12px">
-                        <a href="#" class="shop-now-btn" style="background:#fff;color:#0b5fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700">Shop Now</a>
-                        <span class="delivery-promo" style="background:rgba(255,255,255,0.12);padding:8px 10px;border-radius:6px">FREE Delivery</span>
-                        <span class="discount-promo" style="background:rgba(255,255,255,0.12);padding:8px 10px;border-radius:6px">EXTRA 10% OFF</span>
-                        <div class="small-print-group" style="margin-left:auto;color:rgba(255,255,255,0.9)">
+                    <div class="promo-buttons-group">
+                        <a href="#" class="shop-now-btn">Shop Now</a>
+                        <span class="delivery-promo">FREE Delivery</span>
+                        <span class="discount-promo">EXTRA 10% OFF</span>
+                        <div class="small-print-group">
                             <span>Use code: WELCOME10</span>
-                            <span style="display:block;font-size:0.85rem">*Limited Time Offer</span>
+                            <span>*Limited Time Offer</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="product-icons-section" style="margin-top:18px">
+        <section class="product-icons-section">
             <h3 class="section-title" style="text-align: center;">Popular Categories</h3>
             <div class="product-icons">
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/CPU.png" alt="CPU Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\CPU.png" alt="CPU Category">
                     <div>CPU</div>
                 </a>
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/GPU.png" alt="GPU Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\GPU.png" alt="GPU Category">
                     <div>GRAPHICS CARDS</div>
                 </a>
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/MB.png" alt="Motherboard Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\MB.png" alt="Motherboard Category">
                     <div>MOTHERBOARDS</div>
                 </a>
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/RAM.jpg" alt="RAM Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\RAM.jpg" alt="RAM Category">
                     <div>RAM / MEMORY</div>
                 </a>
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/SSD.jpg" alt="SSD Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\SSD.jpg" alt="SSD Category">
                     <div>SSD STORAGE</div>
                 </a>
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/CASE.png" alt="Case Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\CASE.png" alt="Case Category">
                     <div>PC CASES</div>
                 </a>
+                
                 <a href="#">
-                    <img src="../bytehardware/Logo/MONITOR.jpg" alt="Monitor Category" onerror="this.style.display='none'">
+                    <img src="..\bytehardware\image\MONITOR.jpg" alt="Monitor Category">
                     <div>MONITORS</div>
                 </a>
+                
             </div>
         </section>
 
-        <section class="shop-container" style="margin-top:18px;display:flex;gap:18px">
-            <div class="products-area" style="flex:1">
+        <section class="shop-container">
+            <div class="products-area">
                 <h3 class="section-title">Featured Products</h3>
                 <div class="product-grid">
-                    <!-- product cards (kept as-is, images use placeholders so they always load) -->
-                    <!-- ... (same product cards as your original file, but trimmed here for brevity) -->
-
+                    
                     <div class="product-card">
                         <div class="hover-bar">
                             <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
                             <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
                             <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
                         </div>
-                        <a href="product-detail.html" class="product-link" style="text-decoration:none;color:inherit">
+                        <a href="product-detail.html" class="product-link">
                         <img src="https://placehold.co/200x160/F7F7F7/333?text=GPU" alt="High-End Graphics Card" class="product-image">
                         <p class="product-category">Graphics Cards</p>
                         <h4 class="product-name">RTX 4070 Ti 12GB Gaming GPU</h4>
                         <p class="product-price">₱45,999.00</p>
                         </a>
-                        <button class="btn-add" data-sku="gpu-4070ti">Add to Cart</button>
+                        <button class="btn-add">Add to Cart</button>
                     </div>
-
-                    <!-- Duplicate a few more product cards to show layout -->
+                    
                     <div class="product-card">
                         <div class="hover-bar">
                             <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
                             <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
                             <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
                         </div>
-                        <a href="product-detail.html" class="product-link" style="text-decoration:none;color:inherit">
+                        <a href="product-detail.html" class="product-link">
                         <img src="https://placehold.co/200x160/F7F7F7/333?text=CPU" alt="Desktop Processor" class="product-image">
                         <p class="product-category">Processors</p>
                         <h4 class="product-name">Intel Core i7-14700K Desktop CPU</h4>
                         <p class="product-price">₱25,950.00</p>
                         </a>
-                        <button class="btn-add" data-sku="cpu-i7">Add to Cart</button>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=RAM" alt="RAM Modules" class="product-image">
+                        <p class="product-category">Memory</p>
+                        <h4 class="product-name">32GB DDR5 (2x16GB) RGB RAM Kit</h4>
+                        <p class="product-price">₱8,995.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=MB" alt="Motherboard" class="product-image">
+                        <p class="product-category">Motherboards</p>
+                        <h4 class="product-name">Z790 Chipset ATX Motherboard</h4>
+                        <p class="product-price">₱18,500.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
                     </div>
 
                     <div class="product-card">
@@ -225,137 +217,224 @@
                             <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
                             <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
                         </div>
-                        <a href="product-detail.html" class="product-link" style="text-decoration:none;color:inherit">
-                        <img src="https://placehold.co/200x160/F7F7F7/333?text=RAM" alt="RAM Modules" class="product-image">
-                        <p class="product-category">Memory</p>
-                        <h4 class="product-name">32GB DDR5 (2x16GB) RGB RAM Kit</h4>
-                        <p class="product-price">₱8,995.00</p>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=SSD" alt="SSD Storage" class="product-image">
+                        <p class="product-category">Storage</p>
+                        <h4 class="product-name">2TB NVMe M.2 Gen4 SSD</h4>
+                        <p class="product-price">₱7,299.00</p>
                         </a>
-                        <button class="btn-add" data-sku="ram-32gb">Add to Cart</button>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=Case" alt="PC Case" class="product-image">
+                        <p class="product-category">PC Cases</p>
+                        <h4 class="product-name">Mid-Tower Case w/ Tempered Glass</h4>
+                        <p class="product-price">₱4,150.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=Monitor" alt="Gaming Monitor" class="product-image">
+                        <p class="product-category">Peripherals</p>
+                        <h4 class="product-name">27-inch 144Hz Gaming Monitor</h4>
+                        <p class="product-price">₱16,999.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=Keyboard" alt="Mechanical Keyboard" class="product-image">
+                        <p class="product-category">Accessories</p>
+                        <h4 class="product-name">Mechanical RGB Keyboard, Blue Switches</h4>
+                        <p class="product-price">₱4,750.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=PSU" alt="Power Supply Unit" class="product-image">
+                        <p class="product-category">Components</p>
+                        <h4 class="product-name">850W 80+ Gold Modular PSU</h4>
+                        <p class="product-price">₱6,200.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="hover-bar">
+                            <a href="#" class="action-icon" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                            <a href="product-detail.html" class="action-icon" title="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-icon" title="Compare"><i class="fas fa-random"></i></a>
+                        </div>
+                        <a href="product-detail.html" class="product-link">
+                        <img src="https://placehold.co/200x160/F7F7F7/333?text=Cooler" alt="CPU Cooler" class="product-image">
+                        <p class="product-category">Cooling</p>
+                        <h4 class="product-name">240mm AIO Liquid CPU Cooler</h4>
+                        <p class="product-price">₱5,800.00</p>
+                        </a>
+                        <button class="btn-add">Add to Cart</button>
                     </div>
 
                 </div>
             </div>
 
-            <!-- simple cart-section (kept visible for demo) -->
-            <aside class="cart-section" id="cart-section" style="width:320px">
-                <h3>Cart Preview</h3>
-                <div id="cart-items"></div>
-                <div id="cart-actions" style="margin-top:12px">
-                    <button id="goto-cart" style="padding:10px 12px;border:none;background:var(--color-primary-blue);color:#fff;border-radius:6px">View Cart / Checkout</button>
-                </div>
-            </aside>
-        </section>
-
-        <!-- simple register/login modal (non-php fallback) -->
-        <div id="account-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);align-items:center;justify-content:center;z-index:100">
-            <div style="background:#fff;width:420px;border-radius:10px;padding:18px;max-width:95%">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                    <h3 style="margin:0">Account</h3>
-                    <button id="close-account">&times;</button>
-                </div>
-                <div style="display:flex;gap:12px">
-                    <!-- Register form (connects to your register.php) -->
-                    <form id="register-form" action="register.php" method="post" style="flex:1">
-                        <h4>Sign Up</h4>
-                        <input type="text" name="fName" placeholder="First name" required style="width:100%;padding:8px;margin:6px 0">
-                        <input type="text" name="lName" placeholder="Last name" required style="width:100%;padding:8px;margin:6px 0">
-                        <input type="email" name="email" placeholder="Email" required style="width:100%;padding:8px;margin:6px 0">
-                        <input type="password" name="password" placeholder="Password (min 8 chars)" required minlength="8" style="width:100%;padding:8px;margin:6px 0">
-                        <!-- IMPORTANT: name="signup" so your PHP detects the submit -->
-                        <button type="submit" name="signup" style="padding:10px 12px;border:none;background:var(--color-primary-blue);color:#fff;border-radius:6px;margin-top:6px">Create account</button>
-                    </form>
-
-                    <!-- Login form (example) -->
-                    <form id="login-form" action="login.php" method="post" style="flex:1">
-                        <h4>Sign In</h4>
-                        <input type="email" name="email" placeholder="Email" required style="width:100%;padding:8px;margin:6px 0">
-                        <input type="password" name="password" placeholder="Password" required style="width:100%;padding:8px;margin:6px 0">
-                        <button type="submit" name="login" style="padding:10px 12px;border:none;background:#333;color:#fff;border-radius:6px;margin-top:6px">Sign in</button>
-                    </form>
-                </div>
+            <div class="cart-section" style="display: none;">
             </div>
-        </div>
-
+        </section>
     </main>
 
-    <!-- cart panel that toggles open/close -->
-    <div class="cart-panel" id="cart-panel" aria-hidden="true">
+    <div class="cart-panel">
         <div class="cart-header">
-            <h3>Your Shopping Cart (<span id="cart-count">0</span> Items)</h3>
-            <button id="close-cart">&times;</button>
+            <h3>Your Shopping Cart (0 Items)</h3>
+            <label for="cart-toggle" class="close-cart">&times;</label>
         </div>
-        <div class="cart-empty" id="cart-empty">
+        
+        <div class="cart-empty">
             <i class="fas fa-shopping-bag" style="font-size: 3rem; margin-bottom: 10px;"></i>
             <p>Your cart is empty.</p>
             <p>Ready to shop? Find what you need!</p>
-            <button class="return-shop-btn" id="return-shop" style="padding:10px 12px;border:none;background:var(--color-primary-blue);color:#fff;border-radius:6px">Return to Shop</button>
+            <button class="return-shop-btn" onclick="document.getElementById('cart-toggle').checked = false;">Return to Shop</button>
         </div>
-        <div id="cart-list" style="display:none"></div>
+
     </div>
 
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col footer-company-info">
+            <h3 class="footer-heading">Byte Hardware</h3>
+            <p>Philippines’ Leading Computer & Tech Retailer. Huge selection of desktops, PCs, components & accessories from top brands.</p>
+
+            <h4 class="footer-sub-heading">We're Hiring!</h4>
+            <p>Don't miss the chance to be part of our growing company. <a href="#">Apply now.</a></p>
+
+            <div class="footer-logo-details">
+                <img src="..\ByteHardware\image\byte.png" alt="Byte Hardware Logo"> 
+                <p>Byte Hardware</p>
+            </div>
+
+            <h4 class="footer-sub-heading">Follow Us</h4>
+            <div class="footer-social-links">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col footer-contact-support">
+            <h3 class="footer-heading">Need Help?</h3>
+            <p>Need help or didn't find the item? Chat with a <strong>Personal Shopper</strong>:</p>
+
+            <ul class="footer-list">
+                <li><p><strong>Viber Community</strong> (8 AM - 9 PM): <a href="#">Link to Group</a></p></li>
+                <li><p><strong>FB Chat</strong> (8 AM - 9 PM): <a href="#">@BYTEHardware</a></p></li>
+            </ul>
+            
+            <h4 class="footer-sub-heading">Order Support</h4>
+            <ul class="footer-list">
+                <li>(02) 87725-8888 (Online)</li>
+                <li>09190806888</li>
+                <li><a href="mailto:websales@ByteHardware.com.ph">websales@ByteHardware.com.ph</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col footer-info-policies">
+            <h3 class="footer-heading">FAQ & Policies</h3>
+            <ul class="footer-list">
+                <li><a href="#">Official communication modes</a></li>
+                <li><a href="#">How do I pay for my orders?</a></li>
+                <li><a href="#">How will I receive the items I ordered?</a></li>
+                <li><a href="#">Warranty and Sales Return Policy</a></li>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="footer-disclaimer">All Prices are subject to change without prior notice and may not be applicable for all physical branches.</p>
+        </div>
+
+        <div class="footer-col footer-safety-payment">
+            <h3 class="footer-heading">Staying Safe Online</h3>
+            <ul class="footer-list">
+                <li><a href="#">Stick to Official Channels</a></li>
+                <li><a href="#">Verify Emails & Authenticity</a></li>
+                <li><a href="#">Use Official Bank Details ONLY</a></li>
+                <li><a href="#">Protect your Credentials</a></li>
+                <li><a href="#">When Unsure, Reach Out to us</a></li>
+            </ul>
+            <a href="#" class="footer-learn-more">LEARN MORE ></a>
+
+            <div class="footer-payment-details">
+                <img src="..\ByteHardware\image\visa-mastercard logo.jpg" alt="Visa Mastercard logos">
+                <p>Online payments are now available.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+        <p>Copyright © 2025 <a href="#">Byte Hardware</a>. All rights reserved.</p>
+        <a href="#" class="footer-message-link">
+            <i class="fas fa-comment-dots"></i>
+            <span>Message us</span>
+        </a>
+    </div>
+</footer>
     <script>
+        // Simple script to handle the promotion carousel (basic demo)
         document.addEventListener('DOMContentLoaded', () => {
-            // Promo carousel (simple)
             const promotionText = document.querySelector('.promotion-text');
             const promoNext = document.querySelector('.promo-next');
             const promoPrev = document.querySelector('.promo-prev');
+            
             const promos = [
                 "🔥 Limited Time Offer: Save up to 50% on all electronics!",
                 "✨ Get 10% OFF your first order with code WELCOME10!",
-                "🚚 Free shipping on all orders over ₱2,500!",
+                "🚚 Free shipping on all orders over ₱2,500!", 
                 "⭐ New products added daily!"
             ];
             let currentIndex = 0;
-            function updatePromo(){promotionText.textContent = promos[currentIndex]}
-            if(promoNext && promoPrev){
-                promoNext.addEventListener('click', ()=>{currentIndex=(currentIndex+1)%promos.length;updatePromo()});
-                promoPrev.addEventListener('click', ()=>{currentIndex=(currentIndex-1+promos.length)%promos.length;updatePromo()});
+
+            function updatePromo() {
+                promotionText.textContent = promos[currentIndex];
             }
-            updatePromo();
 
-            // Account modal toggles
-            const accountBtn = document.getElementById('open-account');
-            const accountModal = document.getElementById('account-modal');
-            const closeAccount = document.getElementById('close-account');
-            accountBtn.addEventListener('click', ()=> accountModal.style.display = 'flex');
-            closeAccount.addEventListener('click', ()=> accountModal.style.display = 'none');
-
-            // Cart open/close
-            const cartToggleBtn = document.getElementById('cart-toggle-btn');
-            const cartPanel = document.getElementById('cart-panel');
-            const cartBadge = document.getElementById('cart-badge');
-            const cartCount = document.getElementById('cart-count');
-            const closeCart = document.getElementById('close-cart');
-            const returnShop = document.getElementById('return-shop');
-
-            function openCart(){cartPanel.classList.add('open');cartPanel.setAttribute('aria-hidden','false')}
-            function closeCartFn(){cartPanel.classList.remove('open');cartPanel.setAttribute('aria-hidden','true')}
-            cartToggleBtn.addEventListener('click', ()=>{ if(cartPanel.classList.contains('open')) closeCartFn(); else openCart(); });
-            closeCart.addEventListener('click', closeCartFn);
-            returnShop.addEventListener('click', closeCartFn);
-
-            // Very simple client-side cart (demo only)
-            const addButtons = document.querySelectorAll('.btn-add');
-            const cartItems = [];
-
-            addButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const sku = btn.dataset.sku || 'unknown';
-                    cartItems.push({sku});
-                    cartBadge.textContent = cartItems.length;
-                    cartCount.textContent = cartItems.length;
-                    document.getElementById('cart-empty').style.display = 'none';
-                    const cartList = document.getElementById('cart-list');
-                    cartList.style.display = 'block';
-                    cartList.innerHTML = '<p>' + cartItems.length + ' item(s) in cart (demo)</p>';
-                    openCart();
+            if (promoNext && promoPrev) {
+                promoNext.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % promos.length;
+                    updatePromo();
                 });
-            });
 
-            // Make sure your register form submits to register.php correctly
-            // The register form in the modal has name="signup" on the submit button so your PHP will detect it.
+                promoPrev.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + promos.length) % promos.length;
+                    updatePromo();
+                });
+            }
 
+            // Initial load
+            updatePromo();
         });
     </script>
 </body>
